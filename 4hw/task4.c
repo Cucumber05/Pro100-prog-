@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-int main(){
 
-    printf("Hello, World!")
+int main(int narg, char* name[]){
+    
+    printf("Hello, %s!\n", name[1]);
     return 0;
 
 }
