@@ -41,6 +41,12 @@ public:
 		delete[] data;
 	}
 
+	void random () {
+		for (int i = 0; i < m * n; i++) {
+			data[i] = std::rand() % 10;
+		}
+	}
+
 	Matrix_Class& operator= (const Matrix_Class& matrix) {
 		this-> ~Matrix_Class(); //
 
@@ -53,7 +59,19 @@ public:
 		}
 		return *this;
 	}
+	bool operator== (const Matrix_Class& matrix) {
+		if (m == matrix.m && n == matrix.n) {
 
+			for (int i = 0; i < m * n; i++) {
+
+				if (data[i] != matrix.data[i]) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
 
 	bool operator!= (const Matrix_Class& matrix) {
 		return 1 - (*this == matrix);
@@ -69,8 +87,6 @@ public:
 			}
 			return result;
 		}
-
-
 	}
 
 	Matrix_Class operator- (const Matrix_Class& matrix) {
