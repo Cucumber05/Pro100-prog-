@@ -88,7 +88,17 @@ public:
 			return result;
 		}
 	}
+	Matrix_Class operator+= (const Matrix_Class& matrix) {
+		if (m == matrix.m && n == matrix.n) {
+			Matrix_Class result(m, n);
 
+			for (int i = 0; i < m * n; i++) {
+
+				data[i] = data[i] + matrix.data[i];
+			}
+			return *this;
+		}
+	}
 	Matrix_Class operator- (const Matrix_Class& matrix) {
 		if (m == matrix.m && n == matrix.n) {
 			Matrix_Class result(m, n);
@@ -101,7 +111,17 @@ public:
 		}
 
 	}
+	Matrix_Class operator-= (const Matrix_Class& matrix) {
+		if (m == matrix.m && n == matrix.n) {
+			Matrix_Class result(m, n);
 
+			for (int i = 0; i < m * n; i++) {
+
+				data[i] = data[i] - matrix.data[i];
+			}
+			return *this;
+		}
+	}
 	Matrix_Class operator* (const Matrix_Class& matrix) {
 		if (n== matrix.m) {
 			Matrix_Class result(m, matrix.n);
@@ -118,7 +138,7 @@ public:
 			return result;
 		}
 	}
-
+	friend int main();
 	template<typename U>
 	friend std::istream& operator>> (std::istream& s, Matrix_Class<U>& matrix);
 
