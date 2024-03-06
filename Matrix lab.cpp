@@ -5,6 +5,11 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Matrix_Class<int> A(2,3);
+    std::cin >> A;
+    std::cout << A;
+
+    return 0;
+    //std::cout << "Hello World!\n";
 }
 
