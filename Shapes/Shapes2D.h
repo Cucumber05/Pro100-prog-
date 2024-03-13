@@ -1,12 +1,14 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Shapes.h"
+#define pi 3.14
 
 class Shape2D : public Shape {
 public:
     double area = 0;
     virtual void Showinfo() = 0;
-    virtual std::string GetName() = 0;
+    virtual void GetName() = 0;
 
     double GetArea() {
         return area;
@@ -30,11 +32,15 @@ private:
     double side;
 
 public:
-    void Showinfo() override {
-        std::cout << "" << std::endl;
+    Square(double side): side(side) {
+        CalculateArea();
     }
-    std::string GetName()  override {
-        return "I'm s\quare!";
+    void Showinfo() override {
+        GetName();
+        std::cout << "my side = " << side <<"\nmy area = " << area << std::endl;
+    }
+    void GetName()  override {
+        std::cout << "I'm square!" << std::endl;
     }
     void CalculateArea() override {
         area = side * side;
@@ -43,17 +49,21 @@ public:
 };
 
 class Triangle : public Shape2D {
-private:
+protected:
     double base;
     double height;
 
 public:
 
-    void Showinfo() override {
-
+    Triangle(double base, double height): base(base), height(height){
+        CalculateArea();
     }
-    std::string GetName()  override {
-        return "I'm triangle!";
+    void Showinfo() override {
+        GetName();
+        std::cout << "my base = " << base << "\nmy height = "<< height << "\nmy area = " << area << std::endl;
+    }
+    void GetName()  override {
+        std::cout << "I'm triangle!" << std::endl;
     }
     void CalculateArea() override {
         area = base * height / 2;
@@ -62,15 +72,19 @@ public:
 };
 
 class Circle : public Shape2D {
-private:
+protected:
     double radius;
 
 public:
-    void Showinfo() override {
-        std::cout << "" << std::endl;
+    Circle(double radius) : radius(radius) {
+        CalculateArea();
     }
-    std::string GetName()  override {
-        return "I'm circle!";
+    void Showinfo() override {
+        GetName();
+        std::cout << "my radius = " << radius << "\nmy area = " << area << std::endl;
+    }
+    void GetName()  override {
+        std::cout << "I'm circle!" << std::endl;
     }
     void CalculateArea() override {
         area = pi * pow(radius, 2);
