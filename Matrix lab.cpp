@@ -79,6 +79,18 @@ int main()
             std::cout << (A != B) << std::endl;
             break;
         case 8:
+            std::cout << "1.A + B" << std::endl;
+            std::cout << (A + B) << std::endl;
+            std::cout << "2.A += B:" << std::endl;
+            std::cout << (A += B) << std::endl;
+            std::cout << "3.A - B:" << std::endl;
+            std::cout << (A - B) << std::endl;
+            std::cout << "4.A -= B:" << std::endl;
+            std::cout << (A -= B) << std::endl;
+            std::cout << "5.A * B:" << std::endl;
+            std::cout << (A * B) << std::endl;
+            std::cout << "6.A == B:" << std::endl;
+            std::cout << (A == B) << std::endl;
             std::cout << "7.A != B:" << std::endl;
             std::cout << (A != B) << std::endl;
             break;
